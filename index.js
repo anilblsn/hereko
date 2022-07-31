@@ -122,6 +122,12 @@ app.get('/admin/add',(req,res) =>{
   res.render('add')
 })
 
+app.get('/admin/ekle',(req,res) =>{
+  res.render('ekle')
+})
+
+//Post section
+
 app.post('/admin/add',(req,res) =>{
   const blog = new Blog(req.body)
 
@@ -138,7 +144,7 @@ app.post('/admin/ekle',(req,res) =>{
 
   user.save()
   .then((result) =>{
-    res.redirect('/users')
+    res.redirect('/admin')
     console.log(req.body)
   })
   .catch(() => console.log('hatalar zinciri'))
