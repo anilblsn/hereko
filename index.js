@@ -142,15 +142,15 @@ app.post('/admin/add',(req,res) =>{
   .catch(() => console.log('hatalar zinciri'))
 })
 
-app.post('/admin/ekle',(req,res,status) =>{
+app.post('/admin/ekle',(req,res) =>{
   const user = new Users(req.body)
 
-  user.save(status)
+  user.save()
   .then((result) =>{
-    res.json({status: 'olumlu'})
-    console.log(req.body)
+    res.redirect('/admin')
+    res.json({result: 'T'})
   })
-  .catch(() => console.log('hatalar zinciri'))
+  .catch((result) => res.json({result: 'E'}))
 })
 
 

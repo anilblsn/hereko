@@ -8,9 +8,11 @@ const usersSchema = new Schema({
   },
   sifre: {
     type: String,
-    require: true
+    require: true,
   },
 })
 
-const Users = mongoose.model('Users',usersSchema)
+
+
+const Users = mongoose.model('Users',usersSchema,kontrol)
 module.exports = Users
