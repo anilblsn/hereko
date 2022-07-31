@@ -118,6 +118,7 @@ app.get('/admin',(req,res) =>{
   .catch(() => console.log('hata aldın'))
 })
 
+//postların yapılacağı get
 app.get('/admin/add',(req,res) =>{
   res.render('add')
 })
