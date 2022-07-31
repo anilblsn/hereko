@@ -10,7 +10,7 @@ const usersSchema = new Schema({
     type: String,
     require: true
   },
-},{timestamps: true})
+})
 
 const Users = mongoose.model('Users',usersSchema)
 module.exports = Users
