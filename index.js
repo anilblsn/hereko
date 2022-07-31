@@ -63,6 +63,14 @@ app.get('/',(req,res) =>{
   .catch(() => console.log('hata aldın'))
 })
 
+app.get('/kullanicilar',(req,res) =>{
+  Users.find()
+  .then((result) =>{
+    res.json({users: result})
+  })
+  .catch(() => console.log('hata aldın'))
+})
+
 app.get('/users',(req,res) =>{
   Users.find()
   .then((result) =>{
