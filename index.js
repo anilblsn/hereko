@@ -74,7 +74,7 @@ app.get('/kullanicilar',(req,res) =>{
 app.get('/users',(req,res) =>{
   Users.find()
   .then((result) =>{
-    res.send({users: result})
+    res.send(result)
   })
   .catch(() => console.log('hata aldın'))
 })
