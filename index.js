@@ -126,7 +126,7 @@ app.get('/admin/add',(req,res) =>{
 })
 
 app.get('/admin/ekle',(req,res) =>{
-  res.render('ekle')
+  res.json('eklendi')
 })
 
 //Post section
@@ -142,17 +142,16 @@ app.post('/admin/add',(req,res) =>{
   .catch(() => console.log('hatalar zinciri'))
 })
 
-app.post('/admin/ekle',(req,res) =>{
+app.post('/admin/ekle',(req,res,status) =>{
   const user = new Users(req.body)
 
-  user.save()
+  user.save(status)
   .then((result) =>{
-    res.redirect('/admin')
+    res.json({status: 'olumlu'})
     console.log(req.body)
   })
   .catch(() => console.log('hatalar zinciri'))
 })
-
 
 
 app.use((req,res) =>{
