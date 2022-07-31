@@ -71,6 +71,8 @@ app.get('/kullanicilar',(req,res) =>{
   .catch(() => console.log('hata aldın'))
 })
 
+//gizli Section
+
 app.get('/users',(req,res) =>{
   Users.find()
   .then((result) =>{
