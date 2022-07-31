@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const Blog = require('./models/blogs')
+const Users = require('./models/users')
 
 const app = express()
 app.set('view engine','ejs')
@@ -62,6 +63,14 @@ app.get('/',(req,res) =>{
   .catch(() => console.log('hata aldın'))
 })
 
+app.get('/users',(req,res) =>{
+  Users.find()
+  .then((result) =>{
+    res.json({users: result})
+  })
+  .catch(() => console.log('hata aldın'))
+})
+
 app.get('/tumVeri',(req,res) =>{
   Blog.find().sort({createdAt: 1})
   .then((result) =>{
@@ -111,6 +120,17 @@ app.post('/admin/add',(req,res) =>{
   blog.save()
   .then((result) =>{
     res.redirect('/admin')
+    console.log(req.body)
+  })
+  .catch(() => console.log('hatalar zinciri'))
+})
+
+app.post('/admin/ekle',(req,res) =>{
+  const user = new Users(req.body)
+
+  user.save()
+  .then((result) =>{
+    res.redirect('/users')
     console.log(req.body)
   })
   .catch(() => console.log('hatalar zinciri'))
