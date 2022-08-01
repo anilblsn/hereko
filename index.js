@@ -126,7 +126,7 @@ app.get('/admin/add',(req,res) =>{
 })
 
 app.get('/admin/ekle',(req,res) =>{
-  res.redirect('ekle')
+  res.redirect('/ekle')
 })
 
 //Post section
