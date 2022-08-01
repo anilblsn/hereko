@@ -147,7 +147,8 @@ app.post('/admin/ekle',(req,res) =>{
 
   user.save()
   .then((result) =>{
-    res.redirect('/admin')
+    // res.redirect('/admin')
+    res.json(result = 'T')
     console.log(req.body)
   })
   .catch(() => console.log('hatalar zinciri'))
